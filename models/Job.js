@@ -31,7 +31,7 @@ const JobSchema = new mongoose.Schema({
     ref: 'User',
     required: [true, 'Please provide user']
   },
-}
+},
 { timestamps: true }
 )
 export default mongoose.model('Job', JobSchema)

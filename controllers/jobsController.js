@@ -1,5 +1,5 @@
 import Job from '../models/Job.js'
-import {StatusCode} from 'http-status-codes'
+import {StatusCodes} from 'http-status-codes'
 import {BadRequestError, UnAuthenticatedError} from '../errors/index.js'
 
 const createJob = async (req, res) => {
