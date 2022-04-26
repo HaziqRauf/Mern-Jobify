@@ -3,7 +3,7 @@ import {StatusCodes} from 'http-status-codes'
 import {BadRequestError, UnAuthenticatedError} from '../errors/index.js'
 
 const createJob = async (req, res) => {
-  const {positon, company} = req.body
+  const {position, company} = req.body
 
   if(!position || !company) {
     throw new BadRequestError('Please provide all values')
