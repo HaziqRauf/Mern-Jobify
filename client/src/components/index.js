@@ -5,5 +5,17 @@ import Alert from '../components/Alert';
 import Navbar from '../components/Navbar';
 import SmallSidebar from '../components/SmallSidebar';
 import BigSidebar from '../components/BigSidebar';
+import SearchContainer from '../components/SearchContainer';
+import JobsContainer from '../components/JobsContainer';
 
-export { Logo, FormRow, Alert, Navbar, SmallSidebar, BigSidebar,FormRowSelect }
+export {
+  Logo,
+  FormRow,
+  Alert, 
+  Navbar, 
+  BigSidebar,
+  SmallSidebar, 
+  FormRowSelect,
+  SearchContainer,
+  JobsContainer
+}

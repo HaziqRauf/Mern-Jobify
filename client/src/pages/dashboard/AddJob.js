@@ -90,7 +90,7 @@ const AddJob = () => {
                  className='btn btn-block clear-btn'
                  onClick={(e)=>{
                    e.preventDefault()
-                   console.log('hellloworld')
+                   clearValues()
                  }}
                >
                  clear

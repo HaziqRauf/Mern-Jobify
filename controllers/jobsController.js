@@ -10,10 +10,10 @@ const createJob = async (req, res) => {
   }
   req.body.createdBy = req.user.userId
   const job = await Job.create(req.body)
-  res.status(StatusCodes.CREATED).json()
+  res.status(StatusCodes.CREATED).json({ job })
 }
 const getAllJobs = async (req, res) => {
-  const job = await Job.find({createdBy: req.user.userId})
+  const jobs = await Job.find({jobLocation: "my city"})
   res
     .status(StatusCodes.OK)
     .json({jobs, totalJobs: jobs.length, numOfPages: 1})
