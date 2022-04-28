@@ -15,7 +15,8 @@ const createJob = async (req, res) => {
 }
 
 const getAllJobs = async (req, res) => {
-  const jobs = await Job.find({ jobLocation: "my city" })
+  const filter = {} // empty filter means "match all documents"
+  const jobs = await Job.find(filter)
   res
     .status(StatusCodes.OK)
     .json({jobs, totalJobs: jobs.length, numOfPages: 1})
