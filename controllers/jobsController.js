@@ -17,8 +17,41 @@ const createJob = async (req, res) => {
 }
 
 const getAllJobs = async (req, res) => {
-  const filter = { createdBy: mongoose.Types.ObjectId(req.user.userId) } // empty filter means "match all documents"
-  const jobs = await Job.find(filter)
+  const { status, jobType, sort, search } = req.query
+  const queryObject = {
+    createdBy: req.user.userId,
+  }
+  // const filter = { createdBy: mongoose.Types.ObjectId(req.user.userId) } // empty filter means "match all documents"
+  // add stuff based on conditions
+  if(status !== 'all'){
+    queryObject.status = status
+  }
+  if(jobType !== 'all'){
+    queryObject.jobType = jobType
+  }
+  if(search){
+      queryObject.position = { $regex: search, $options: 'i' }
+  }
+
+  // NO AWAIT
+  let result = Job.find(queryObject)
+
+  //Chain sort conditions
+  if (sort === 'latest') {
+    result = result.sort('-createdAt')
+  }
+  if (sort === 'oldest') {
+    result = result.sort('createdAt')
+  }
+  if (sort === 'a-z') {
+    result = result.sort('position')
+  }
+  if (sort === 'z-a') {
+    result = result.sort('-position')
+  }
+
+  const jobs = await result
+
   res
     .status(StatusCodes.OK)
     .json({jobs, totalJobs: jobs.length, numOfPages: 1})
