@@ -6,7 +6,10 @@ import Navbar from '../components/Navbar';
 import SmallSidebar from '../components/SmallSidebar';
 import BigSidebar from '../components/BigSidebar';
 import SearchContainer from '../components/SearchContainer';
+import Loading from '../components/Loading';
 import JobsContainer from '../components/JobsContainer';
+import StatsContainer from '../components/StatsContainer';
+import ChartsContainer from '../components/ChartsContainer';
 
 export {
   Logo,
@@ -17,5 +20,8 @@ export {
   SmallSidebar, 
   FormRowSelect,
   SearchContainer,
-  JobsContainer
+  Loading,
+  JobsContainer,
+  StatsContainer,
+  ChartsContainer,
 }
