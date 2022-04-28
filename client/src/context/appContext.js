@@ -201,7 +201,7 @@ const AppProvider = ({children}) => {
       clearAlert()
     }
     const setEditJob = (id) => {
-      dispatch({ TYPE: SET_EDIT_JOB, payload: { id } })
+      dispatch({ type: SET_EDIT_JOB, payload: { id } })
     }
     const editJob = () => {
       console.log('edit job')
