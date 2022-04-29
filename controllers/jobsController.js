@@ -23,10 +23,11 @@ const getAllJobs = async (req, res) => {
   }
   // const filter = { createdBy: mongoose.Types.ObjectId(req.user.userId) } // empty filter means "match all documents"
   // add stuff based on conditions
-  if(status !== 'all'){
+  if(status && status !== 'all') { //checking if status is valid
+  // if(status !== 'all'){
     queryObject.status = status
   }
-  if(jobType !== 'all'){
+  if(jobType && jobType !== 'all'){
     queryObject.jobType = jobType
   }
   if(search){
